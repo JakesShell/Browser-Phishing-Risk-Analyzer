@@ -1,51 +1,116 @@
-/* styles.css */
-
-body {
+﻿body {
     font-family: Arial, sans-serif;
-    width: 250px;
-    padding: 15px;
-    background-color: #f7f9fc;
-    color: #333;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 340px;
+    margin: 0;
+    background: #f3f6fb;
+    color: #14213d;
+}
+
+.container {
+    padding: 18px;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 11px;
+    color: #64748b;
+    margin-bottom: 8px;
 }
 
 h1 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    text-align: center;
-    color: #4A90E2; /* Primary color */
+    font-size: 20px;
+    margin: 0 0 8px;
+    color: #1d4ed8;
+}
+
+.subtitle {
+    margin: 0 0 16px;
+    line-height: 1.5;
+    color: #475569;
 }
 
 .result-box {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-    margin-bottom: 15px;
-    min-height: 40px; /* Minimum height for the result box */
-    text-align: center;
-    line-height: 1.5; /* Improved line height for readability */
+    margin-top: 16px;
+    padding: 14px;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    background: white;
+    min-height: 90px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.placeholder {
+    margin: 0;
+    color: #64748b;
 }
 
 .check-button {
     width: 100%;
-    padding: 10px;
-    background-color: #4A90E2; /* Primary color */
-    color: #fff;
+    padding: 12px;
+    background: #2563eb;
+    color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .check-button:hover {
-    background-color: #357ABD; /* Darker shade on hover */
+    background: #1d4ed8;
 }
 
-@media (max-width: 300px) {
-    body {
-        width: 100%;
-    }
+.risk-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.risk-badge {
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+}
+
+.risk-badge.low {
+    background: #16a34a;
+}
+
+.risk-badge.medium {
+    background: #d97706;
+}
+
+.risk-badge.high {
+    background: #dc2626;
+}
+
+.risk-score {
+    font-size: 12px;
+    color: #475569;
+    font-weight: 600;
+}
+
+.url-line {
+    font-size: 12px;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+.reason-block strong {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 8px;
+}
+
+.reason-block ul {
+    margin: 0;
+    padding-left: 18px;
+    line-height: 1.6;
+    font-size: 13px;
 }

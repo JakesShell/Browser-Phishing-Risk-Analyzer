@@ -1,26 +1,21 @@
-// popup.js
-
-document.getElementById("check-url").addEventListener("click", () => {
+﻿document.getElementById("check-url").addEventListener("click", () => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        const url = tabs[0].url;
-        let score = 0;
-
-        const indicators = ["login", "urgent", "verify", "account", "password"];
-        
-        // Check URL for phishing indicators
-        for (const indicator of indicators) {
-            if (url.includes(indicator)) {
-                score += 2;  // Increase score for each match
-            }
-        }
-
+        const currentUrl = tabs[0]?.url || "";
+        const result = analyzePhishingRisk(currentUrl);
         const resultDiv = document.getElementById("result");
-        resultDiv.innerText = `URL: ${url}\nScore: ${score}`;
 
-        if (score > 4) {
-            resultDiv.innerText += "\nWarning: This URL may be a phishing attempt!";
-        } else {
-            resultDiv.innerText += "\nThis URL seems safe.";
-        }
+        const reasonsHtml = result.reasons.map(reason => `<li>${reason}</li>`).join("");
+
+        resultDiv.innerHTML = `
+            <div class="risk-header">
+                <span class="risk-badge ${result.level.toLowerCase()}">${result.level} Risk</span>
+                <span class="risk-score">Score: ${result.score}</span>
+            </div>
+            <p class="url-line"><strong>URL:</strong> ${currentUrl}</p>
+            <div class="reason-block">
+                <strong>Findings</strong>
+                <ul>${reasonsHtml}</ul>
+            </div>
+        `;
     });
 });

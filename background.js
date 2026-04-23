@@ -1,5 +1,3 @@
-// background.js
-
-chrome.runtime.onInstalled.addListener(() => {
-    console.log("Phishing Detection Tool installed.");
+﻿chrome.runtime.onInstalled.addListener(() => {
+    console.log("Browser Phishing Risk Analyzer installed.");
 });

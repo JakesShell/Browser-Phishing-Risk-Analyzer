@@ -1,33 +1,22 @@
-{
+﻿{
   "manifest_version": 3,
-  "name": "Phishing Detection Tool",
-  "version": "1.0",
-  "description": "Analyzes email content and URLs to detect phishing attempts.",
+  "name": "Browser Phishing Risk Analyzer",
+  "version": "1.0.0",
+  "description": "Analyzes the active page URL for common phishing risk indicators and explains the findings.",
   "permissions": [
     "activeTab",
-    "scripting",
     "storage"
   ],
   "background": {
     "service_worker": "background.js"
   },
   "action": {
-    "default_popup": "popup.html",
-    "default_icon": {
-      "16": "icon16.png",
-      "48": "icon48.png",
-      "128": "icon128.png"
-    }
+    "default_popup": "popup.html"
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content.js"]
+      "js": ["riskEngine.js", "content.js"]
     }
-  ],
-  "icons": {
-    "16": "icon16.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
-  }
+  ]
 }

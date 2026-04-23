@@ -1,18 +1,25 @@
-<!-- popup.html -->
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Phishing Risk Analyzer</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Phishing Detection Tool</title>
 </head>
 <body>
     <div class="container">
-        <h1>Phishing Detection</h1>
-        <div id="result" class="result-box"></div>
-        <button id="check-url" class="check-button">Check Current URL</button>
+        <p class="eyebrow">Browser Safety Review</p>
+        <h1>Phishing Risk Analyzer</h1>
+        <p class="subtitle">Check the current tab for common phishing risk signals.</p>
+
+        <button id="check-url" class="check-button">Analyze Current URL</button>
+
+        <div id="result" class="result-box">
+            <p class="placeholder">No analysis yet.</p>
+        </div>
     </div>
+
+    <script src="riskEngine.js"></script>
+    <script src="popup.js"></script>
 </body>
-<script src="popup.js"></script>
 </html>
