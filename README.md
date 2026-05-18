@@ -85,3 +85,4 @@ The popup remains the detailed review panel. The banner gives the user an immedi
 chrome://extensions
 
 
+
