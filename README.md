@@ -1,68 +1,87 @@
-﻿# Browser Phishing Risk Analyzer
+# PhishGuard Browser Threat & Link Risk Analyzer
+
+PhishGuard is a defensive Chrome/Edge browser extension that analyzes the current tab URL, scores phishing risk, explains warning signs, and helps users practice safer link decisions.
+
+This project upgrades the original `Browser-Phishing-Risk-Analyzer` into a polished browser security portfolio project with a Manifest V3 extension, popup dashboard, current-tab scanning, manual URL scanning, page signal review, scan history, JSON report export, and CI validation.
+
+## Project Preview
+
+<p>
+  <img src="screenshots/auto-warning-banner.png" alt="PhishGuard automatic high-risk warning banner" width="100%">
+</p>
 
 ## Overview
 
-Browser Phishing Risk Analyzer is a browser extension designed to evaluate the active page URL for common phishing indicators and present explainable risk feedback to the user.
+PhishGuard is designed to feel like a lightweight browser security tool for students, staff, and support teams. It does not attack websites or bypass protections. It reviews visible URL and page signals, then explains possible risks in plain language.
 
-This project is positioned as a recruiter-ready and business-facing browser safety utility for safer browsing awareness, phishing education, and defensive user support. It checks URL characteristics, suspicious terms, and other lightweight indicators to estimate whether a page deserves additional caution.
+## Real-World Use Case
 
-The extension includes:
+Users often receive links through email, chat, social media, documents, or classroom platforms. Before trusting a link, they need to know:
 
-- URL-Based Risk Analysis
-- Popup-Based Review Interface
-- In-Page Warning Banner For Higher-Risk Results
-- Explainable Risk Reasons
+- Does the URL use HTTPS?
+- Is the domain strange or misleading?
+- Is a URL shortener hiding the destination?
+- Does the link use urgent or account-warning wording?
+- Does the page ask for login details?
+- Does the link imitate a trusted brand?
+- Can the user export a simple report for awareness training?
 
-## Real-World Business Use Case
+PhishGuard turns those questions into a browser workflow.
 
-This project maps to realistic defensive security workflows used by:
+## Safe Demo Boundary
 
-- Security Awareness Teams
-- IT Administrators
-- Small Business Support Teams
-- Browser Safety Tool Builders
-- Cybersecurity Students
-- Internal Security Education Programs
+PhishGuard is defensive and educational. It is intended for:
 
-A company may need to answer questions such as:
+- Browser security awareness
+- Student ICT demonstrations
+- Defensive URL review
+- Portfolio demonstrations
+- Helpdesk-style phishing triage examples
 
-- How can users be warned about suspicious links more clearly?
-- How can phishing signals be explained instead of only flagged?
-- How can a lightweight browser extension support safer browsing behavior?
-- How can defensive browser tooling be demonstrated in a portfolio?
+It should not be used to generate phishing links, bypass controls, or test systems without permission.
 
-This kind of extension could be used as part of security awareness training, employee browsing safety initiatives, or defensive browser utility prototypes.
+## Automatic Protection Behavior
+
+PhishGuard now runs an automatic defensive scan when a page loads.
+
+Automatic behavior includes:
+
+- Current-page URL analysis
+- Page signal collection
+- Extension badge status
+- Green `OK` badge for low-risk pages
+- Yellow `!` badge for watch-level pages
+- Red `!!` badge for high-risk pages
+- On-page warning banner for watch-level and high-risk pages
+- Full report available by clicking the extension icon
+
+The popup remains the detailed review panel. The banner gives the user an immediate warning without requiring them to manually open the extension first.
 
 ## Key Features
 
-- Active URL Analysis
-- Risk Scoring
-- Low / Medium / High Risk Classification
-- Explainable Risk Reasons
-- Popup-Based URL Review
-- In-Page Warning Banner For Higher-Risk Pages
-- Browser Extension Structure Using Manifest V3
+- Chrome/Edge Manifest V3 extension
+- Automatic current-page scanning
+- Current-tab URL scanning
+- Manual URL scanner
+- Phishing risk score
+- Low / Watch Closely / High Risk labels
+- Explainable warning cards
+- Extension badge risk status
+- On-page warning banner for suspicious pages
+- Page signal collection
+- Password field and login-signal awareness
+- Scan history
+- Clear history control
+- Export JSON report
+- Student safety reminder
+- CI validation for manifest and JavaScript files
 
-## Tech Stack
+## How To Use Locally In Chrome
 
-- JavaScript
-- HTML
-- CSS
-- Browser Extension APIs
-- Manifest V3
-
-## Project Structure
+1. Open Chrome.
+2. Go to:
 
 ```text
-Browser-Phishing-Risk-Analyzer/
-|-- manifest.json
-|-- background.js
-|-- riskEngine.js
-|-- content.js
-|-- popup.html
-|-- popup.js
-|-- styles.css
-|-- README.md
-|-- docs/
-|   |-- images/
-|       |-- phishing-banner-high-risk.png
+chrome://extensions
+
+

@@ -1,0 +1,30 @@
+name: PhishGuard Extension CI
+
+on:
+  push:
+    branches: [ main, phishguard-upgrade ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-extension:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Validate manifest JSON
+        run: node -e "JSON.parse(require('fs').readFileSync('manifest.json', 'utf8')); console.log('manifest ok')"
+
+      - name: Syntax check JavaScript
+        run: |
+          node --check riskEngine.js
+          node --check popup.js
+          node --check background.js
+          node --check content.js

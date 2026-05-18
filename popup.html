@@ -1,25 +1,71 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Browser Phishing Risk Analyzer</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>PhishGuard</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <p class="eyebrow">Browser Safety Review</p>
-        <h1>Phishing Risk Analyzer</h1>
-        <p class="subtitle">Check the current tab for common phishing risk signals.</p>
+  <main class="popup-shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Browser Threat & Link Risk Analyzer</p>
+        <h1>PhishGuard</h1>
+        <p class="subtitle">Score the current tab, review warning signs, and teach safer link habits.</p>
+      </div>
+      <div id="scoreOrb" class="score-orb low">
+        <strong id="scoreValue">--</strong>
+        <span id="levelValue">Waiting</span>
+      </div>
+    </section>
 
-        <button id="check-url" class="check-button">Analyze Current URL</button>
+    <section class="action-row">
+      <button id="scanCurrentTab">Scan Current Tab</button>
+      <button id="exportReport" class="secondary">Export Report</button>
+    </section>
 
-        <div id="result" class="result-box">
-            <p class="placeholder">No analysis yet.</p>
-        </div>
-    </div>
+    <section class="manual-card">
+      <label for="manualUrl">Manual URL Scan</label>
+      <div class="manual-row">
+        <input id="manualUrl" type="text" placeholder="Paste a URL to analyze">
+        <button id="scanManual">Scan</button>
+      </div>
+    </section>
 
-    <script src="riskEngine.js"></script>
-    <script src="popup.js"></script>
+    <section id="summaryCard" class="summary-card">
+      <p>Open a page and scan it to begin.</p>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <h2>Risk Findings</h2>
+        <span id="findingCount">0</span>
+      </div>
+      <div id="findingsList" class="findings-list"></div>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <h2>Page Signals</h2>
+      </div>
+      <div id="pageSignals" class="signal-grid"></div>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <h2>Recent Scans</h2>
+        <button id="clearHistory" class="tiny-button">Clear</button>
+      </div>
+      <div id="historyList" class="history-list"></div>
+    </section>
+
+    <section class="lesson-card">
+      <h2>Student Safety Reminder</h2>
+      <p>Slow down, read the real domain, avoid urgent login links, and type trusted websites manually when in doubt.</p>
+    </section>
+  </main>
+
+  <script src="riskEngine.js"></script>
+  <script src="popup.js"></script>
 </body>
 </html>
